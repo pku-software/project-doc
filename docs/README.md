@@ -6,6 +6,10 @@
 
 [Mini-Lisp](https://pku-software.github.io/mini-lisp-spec) 是一种 Lisp 方言，近似于 R<sup>5</sup>RS 规范的子集。
 
+<ClientOnly>
+  <MiniLisp />
+</ClientOnly>
+
 你可能对 Lisp 了解甚少，对编译原理也不熟悉；但是没关系，这份文档将带你一步步完成所有的工作。那么，做好[准备](./preface/prerequisites)后，让我们[开始](./levels/0)吧！
 
 -----

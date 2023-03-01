@@ -1,10 +1,11 @@
-import { defineUserConfig, defaultTheme } from 'vuepress';
+import { defineUserConfig, defaultTheme } from "vuepress";
+import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
+import { fileURLToPath } from "node:url";
 
 export default defineUserConfig({
-  lang: 'zh-CN',
-  title: '软件设计实践大作业',
+  lang: "zh-CN",
+  title: "软件设计实践大作业",
   base: "/project-doc/",
-
   theme: defaultTheme({
     sidebar: [
       {
@@ -12,11 +13,11 @@ export default defineUserConfig({
         children: [
           {
             text: "项目概述",
-            link: "/"
+            link: "/",
           },
           "/preface/prerequisites",
-          "/preface/facing-problem"
-        ]
+          "/preface/facing-problem",
+        ],
       },
       {
         text: "开始实践",
@@ -29,8 +30,8 @@ export default defineUserConfig({
           "/levels/5",
           "/levels/6",
           "/levels/7",
-          "/levels/7p"
-        ]
+          "/levels/7p",
+        ],
       },
       {
         text: "附录",
@@ -38,18 +39,27 @@ export default defineUserConfig({
           "/appendix/why",
           {
             text: "Lisp 入门教程",
-            link: "https://pku-software.github.io/lisp-tutorial/"
+            link: "https://pku-software.github.io/lisp-tutorial/",
           },
           {
             text: "Mini-Lisp 语言规范",
-            link: "https://pku-software.github.io/mini-lisp-spec/"
+            link: "https://pku-software.github.io/mini-lisp-spec/",
           },
           {
             text: "Mini-Lisp 脚手架",
-            link: "https://pku-software.github.io/create-mini-lisp/"
-          }
-        ]
-      }
-    ]
-  })
-})
+            link: "https://pku-software.github.io/create-mini-lisp/",
+          },
+        ],
+      },
+    ],
+  }),
+  plugins: [
+    registerComponentsPlugin({
+      components: {
+        MiniLisp: fileURLToPath(
+          new URL("./components/MiniLisp.vue", import.meta.url).href
+        ),
+      },
+    }),
+  ],
+});

@@ -1,0 +1,5 @@
+
+# WASM of mini_lisp. Should download by npm scripts.
+
+mini_lisp.js
+mini_lisp.wasm
