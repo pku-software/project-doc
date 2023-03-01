@@ -13,8 +13,12 @@ let resizeObserver;
 const EXAMPLE_INPUTS = [
   "(+ 30 50)",
   "(/ 10 3)",
+  "(if (> 5 3) \"OK\" \"Impossible\")",
   '(print "Hello, world!")',
   "(map - '(1 2 3))",
+  "(car '(lhs . rhs))",
+  "(cdr (list 1 'a #t))",
+  "(cons 9 (cons 8 (cons 5 '())))",
   "(map (lambda (x) (* x x)) '(1 2 3))",
   "(eval '(+ 1 2))",
   "(let ((x 10)) (+ x 20))",
@@ -37,8 +41,6 @@ if (!("wasmLoaded" in window)) {
 }
 
 onMounted(async () => {
-  await window.wasmLoaded;
-  wasmEnv = new window.Module.WasmEnv();
   const term = new Terminal({
     cursorBlink: true,
     fontSize: 12,
@@ -46,10 +48,15 @@ onMounted(async () => {
   term.open(terminalDiv.value);
   const localEcho = new LocalEchoAddon({
     enableIncompleteInput: false,
+    enableAutocomplete: false,
   });
   const fitAddon = new FitAddon();
   term.loadAddon(localEcho);
   term.loadAddon(fitAddon);
+  term.write("\x1b[38;5;250mLoading Mini-Lisp on Wasm...\x1b[0m");
+  await window.wasmLoaded;
+  await localEcho.println("\x1b[H\x1b[2J\x1b[1mMini-Lisp on Wasm\x1b[0m\x1b[38;5;250m by Guyutongxue\x1b[0m");
+  wasmEnv = new window.Module.WasmEnv();
   const readLine = async () => {
     const line = await localEcho.read(">>> ");
     if (!wasmEnv) {
@@ -121,5 +128,19 @@ onUnmounted(() => {
 .term-container .terminal {
   background-color: black;
   padding: 1rem;
+}
+.xterm-viewport {
+  scrollbar-width: thin;
+  scrollbar-color: grey black;
+}
+.xterm-viewport::-webkit-scrollbar {
+  width: 7px;
+}
+.xterm-viewport::-webkit-scrollbar-thumb {
+  background-color: grey;
+  border-radius: 3px;
+}
+.xterm-viewport::-webkit-scrollbar-track {
+  background-color: black;
 }
 </style>
