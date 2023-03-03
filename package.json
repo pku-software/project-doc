@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "get_wasm": "node ./scripts/get_wasm.mjs",
+    "get-wasm": "node ./scripts/get_wasm.mjs",
     "dev": "vuepress dev docs",
-    "build": "pnpm get_wasm && vuepress build docs"
+    "build": "pnpm get-wasm && vuepress build docs"
   },
   "keywords": [],
   "author": "",

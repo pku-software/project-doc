@@ -13,7 +13,7 @@ let resizeObserver;
 const EXAMPLE_INPUTS = [
   "(+ 30 50)",
   "(/ 10 3)",
-  "(if (> 5 3) \"OK\" \"Impossible\")",
+  '(if (> 5 3) "OK" "Impossible")',
   '(print "Hello, world!")',
   "(map - '(1 2 3))",
   "(car '(lhs . rhs))",
@@ -53,27 +53,39 @@ onMounted(async () => {
   const fitAddon = new FitAddon();
   term.loadAddon(localEcho);
   term.loadAddon(fitAddon);
+  fitAddon.fit();
   term.write("\x1b[38;5;250mLoading Mini-Lisp on Wasm...\x1b[0m");
   await window.wasmLoaded;
-  await localEcho.println("\x1b[H\x1b[2J\x1b[1mMini-Lisp on Wasm\x1b[0m\x1b[38;5;250m by Guyutongxue\x1b[0m");
+  await localEcho.println(
+    "\x1b[H\x1b[2J\x1b[1mMini-Lisp on Wasm\x1b[0m\x1b[38;5;250m by Guyutongxue\x1b[0m"
+  );
   wasmEnv = new window.Module.WasmEnv();
-  const readLine = async () => {
-    const line = await localEcho.read(">>> ");
+  const readLine = async (prev = "") => {
+    const line = await localEcho.read(prev ? "... " : ">>> ");
     if (!wasmEnv) {
       console.error("Wasm env not ready.");
       return;
     }
+    let hasPrev = false;
     try {
-      const result = wasmEnv.eval(line);
+      const result = wasmEnv.eval(prev + line);
       await localEcho.println(result);
     } catch (e) {
       if (Array.isArray(e.message)) {
-        await localEcho.println(
-          `\x1b[31m${e.message[0]}: ${e.message[1]}\x1b[0m`
-        );
+        const [errType, errMsg] = e.message;
+        if (errType === "EOFError") {
+          hasPrev = true;
+        } else {
+          await localEcho.println(`\x1b[31m${errType}: ${errMsg}\x1b[0m`);
+        }
+      } else if ("message" in e) {
+        await localEcho.println(`\x1b[31m${e.message}\x1b[0m`);
+      } else {
+        console.error(e);
+        await localEcho.println(`\x1b[31m${e}\x1b[0m`);
       }
     }
-    readLine();
+    readLine(hasPrev ? prev + line : "");
   };
   readLine();
   resizeObserver = new ResizeObserver(() => {
