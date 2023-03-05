@@ -60,24 +60,19 @@ onMounted(async () => {
     "\x1b[H\x1b[2J\x1b[1mMini-Lisp on Wasm\x1b[0m\x1b[38;5;250m by Guyutongxue\x1b[0m"
   );
   wasmEnv = new window.Module.WasmEnv();
-  const readLine = async (prev = "") => {
-    const line = await localEcho.read(prev ? "... " : ">>> ");
+  const readLine = async () => {
+    const line = await localEcho.read(">>> ");
     if (!wasmEnv) {
       console.error("Wasm env not ready.");
       return;
     }
-    let hasPrev = false;
     try {
-      const result = wasmEnv.eval(prev + line);
+      const result = wasmEnv.eval(line);
       await localEcho.println(result);
     } catch (e) {
       if (Array.isArray(e.message)) {
         const [errType, errMsg] = e.message;
-        if (errType === "EOFError") {
-          hasPrev = true;
-        } else {
-          await localEcho.println(`\x1b[31m${errType}: ${errMsg}\x1b[0m`);
-        }
+        await localEcho.println(`\x1b[31m${errType}: ${errMsg}\x1b[0m`);
       } else if ("message" in e) {
         await localEcho.println(`\x1b[31m${e.message}\x1b[0m`);
       } else {
@@ -85,7 +80,7 @@ onMounted(async () => {
         await localEcho.println(`\x1b[31m${e}\x1b[0m`);
       }
     }
-    readLine(hasPrev ? prev + line : "");
+    readLine();
   };
   readLine();
   resizeObserver = new ResizeObserver(() => {
