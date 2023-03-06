@@ -3,7 +3,7 @@ import JsZip from "jszip";
 import { fileURLToPath } from "node:url";
 import { writeFile } from "node:fs/promises";
 
-let DOWNLOAD_URL = `https://github.com/pku-software/mini_lisp/releases/download/v20230303/mini_lisp_wasm.zip`;
+let DOWNLOAD_URL = `https://github.com/pku-software/mini_lisp/releases/latest/download/mini_lisp_wasm.zip`;
 const DESTINATION = fileURLToPath(new URL("../docs/.vuepress/public", import.meta.url).href);
 
 if (process.env.USE_CF_PROXY) {
