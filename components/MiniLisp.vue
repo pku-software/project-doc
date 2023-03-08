@@ -44,6 +44,7 @@ onMounted(async () => {
   const term = new Terminal({
     cursorBlink: true,
     fontSize: 12,
+    fontFamily: "var(--font-family-code, \"Courier New\", monospace)",
   });
   term.open(terminalDiv.value);
   const localEcho = new LocalEchoAddon({

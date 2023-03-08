@@ -14,6 +14,7 @@
   "devDependencies": {
     "@vuepress/client": "2.0.0-beta.61",
     "@vuepress/plugin-register-components": "2.0.0-beta.61",
+    "@vuepress/plugin-search": "2.0.0-beta.61",
     "jszip": "^3.10.1",
     "vue": "^3.2.47",
     "vuepress": "2.0.0-beta.61"

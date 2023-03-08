@@ -1,5 +1,6 @@
 import { defineUserConfig, defaultTheme } from "vuepress";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
+import { searchPlugin } from "@vuepress/plugin-search";
 import { fileURLToPath } from "node:url";
 
 export default defineUserConfig({
@@ -7,6 +8,12 @@ export default defineUserConfig({
   title: "软件设计实践大作业",
   base: "/project-doc/",
   theme: defaultTheme({
+    navbar: [
+      {
+        text: "GitHub",
+        link: "https://github.com/pku-software/project-doc"
+      }
+    ],
     sidebar: [
       {
         text: "写在前面",
@@ -37,6 +44,7 @@ export default defineUserConfig({
         text: "附录",
         children: [
           "/appendix/why",
+          "/appendix/references",
           {
             text: "Lisp 入门教程",
             link: "https://pku-software.github.io/lisp-tutorial/",
@@ -61,5 +69,6 @@ export default defineUserConfig({
         ),
       },
     }),
+    // searchPlugin(),
   ],
 });
