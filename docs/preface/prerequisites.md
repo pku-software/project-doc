@@ -14,7 +14,7 @@
 
 ## Git
 
-Git 是一个版本控制系统 (version control system，VCS)。什么是版本控制? 为什么需要做版本控制?
+Git 是一个版本控制系统 (version control system，VCS)。什么是版本控制？为什么需要做版本控制？
 
 想象你正在开发你的解释器，你决定给你的解释器实现一个新的功能，但添加这个功能需要修改大量之前的代码。你一咬牙一狠心，熬了个大夜，终于把这个功能加完了，遇到的问题也都修好了。你信心满满地打开 OJ 交了一发:
 
@@ -43,7 +43,7 @@ Git 是一个版本控制系统 (version control system，VCS)。什么是版本
 - **切换到分支:** `git checkout 分支名`。
 - **删除分支:** `git branch -D 分支名`。
 
-上面提到了 `.gitignore` 可以让 Git 忽略目录中某些文件，且不让它们出现在 Git 仓库中。这有什么用呢?
+上面提到了 `.gitignore` 可以让 Git 忽略目录中某些文件，且不让它们出现在 Git 仓库中。这有什么用呢？
 
 你在开发过程中难免会产生一些 **“只对你自己有用”** 且 **“不值得永久保留”** 的东西。比如你在开发的过程中希望写几个简单的输入来测试你的程序，或者验证你程序里的某处是否写对了，于是你新建了个名字叫 `test.txt` 的文件，里面写了一些测试的内容，然后你在本地调试的时候会让你的程序读取这个文件。
 
@@ -88,8 +88,8 @@ Git 是一个版本控制系统 (version control system，VCS)。什么是版本
 
 推荐:
 
-- [GDB cheat sheet](https://darkdust。net/files/GDB%20Cheat%20Sheet。pdf)。
-- [LLDB cheat sheet](https://www。nesono。com/sites/default/files/lldb%20cheat%20sheet。pdf)。
+- [GDB cheat sheet](https://darkdust。net/files/GDB%20Cheat%20Sheet。pdf)
+- [LLDB cheat sheet](https://www。nesono。com/sites/default/files/lldb%20cheat%20sheet。pdf)
 
 -----
 
