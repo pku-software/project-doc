@@ -53,8 +53,8 @@ Git 是一个版本控制系统 (version control system，VCS)。什么是版本
 
 推荐:
 
-- [Learn Git Branching](https://learngitbranching。js。org)
-- [Git 快速入门](https://nju-projectn。github。io/ics-pa-gitbook/ics2021/git。html)
+- [Learn Git Branching](https://learngitbranching.js.org)
+- [Git 快速入门](https://nju-projectn.github.io/ics-pa-gitbook/ics2021/git.html)
 
 ## 调试器（GDB/LLDB）
 
@@ -88,9 +88,9 @@ Git 是一个版本控制系统 (version control system，VCS)。什么是版本
 
 推荐:
 
-- [GDB cheat sheet](https://darkdust。net/files/GDB%20Cheat%20Sheet。pdf)
-- [LLDB cheat sheet](https://www。nesono。com/sites/default/files/lldb%20cheat%20sheet。pdf)
+- [GDB cheat sheet](https://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
+- [LLDB cheat sheet](https://www.nesono.com/sites/default/files/lldb%20cheat%20sheet.pdf)
 
 -----
 
-我们所有助教都强烈推荐大家抽一些时间，学习一下 MIT 的 [The Missing Semester of Your CS Education](https://missing。csail。mit。edu/)，这会对你的日常开发起到相当大的帮助。
+我们所有助教都强烈推荐大家抽一些时间，学习一下 MIT 的 [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)，这会对你的日常开发起到相当大的帮助。
