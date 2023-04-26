@@ -22,6 +22,7 @@ export default defineUserConfig({
             text: "项目概述",
             link: "/",
           },
+          "/preface/howto",
           "/preface/prerequisites",
           "/preface/facing-problem",
         ],
@@ -44,6 +45,7 @@ export default defineUserConfig({
         text: "附录",
         children: [
           "/appendix/why",
+          "/appendix/rjsj_test",
           "/appendix/references",
           {
             text: "Lisp 入门教程",

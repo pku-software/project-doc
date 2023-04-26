@@ -12,7 +12,7 @@
 
 你需要了解 Lisp 这种编程语言。如果你还没有了解的话，可以读一下 [30 分钟 Lisp 入门教程](https://pku-software.github.io/lisp-tutorial/)。
 
-## Git
+## Git（不做要求）
 
 Git 是一个版本控制系统 (version control system，VCS)。什么是版本控制？为什么需要做版本控制？
 
@@ -56,7 +56,7 @@ Git 是一个版本控制系统 (version control system，VCS)。什么是版本
 - [Learn Git Branching](https://learngitbranching.js.org)
 - [Git 快速入门](https://nju-projectn.github.io/ics-pa-gitbook/ics2021/git.html)
 
-## 调试器（GDB/LLDB）
+## 调试器（不做要求）
 
 调试程序有几种方法:
 
