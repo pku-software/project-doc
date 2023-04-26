@@ -20,17 +20,18 @@ RJSJ_TEST(上下文结构体, 测试用例集...)
 
 ```cpp
 // exposition-only
+template <typename T>
 concept TestCtx =
     std::movable<T> && 
     std::default_initializable<T> && 
-    requires(T env, const std::string& str) {
-        { env.eval(str) } -> std::convertible_to<std::string>;
+    requires(T ctx, const std::string& str) {
+        { ctx.eval(str) } -> std::convertible_to<std::string>;
     };
 ```
 
 即：
-- 可默认构造（`T{}`）合法；
-- 可移动（`t = T{}`）合法；
+- 可默认构造（`T{}` 合法）；
+- 可移动（`t = T{}` 合法）；
 - 对于 `std::string` 类型的 `input`，`t.eval(input)` 的结果可转换到 `std::string`。
 
 对于每组测试用例集，测试框架的行为如下：
