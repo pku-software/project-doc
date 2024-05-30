@@ -64,6 +64,4 @@ concept TestCtx =
 
 ## `RJSJ_TEST_ENABLED` 宏
 
-恒展开为 `1`。
-
-若删除 `rjsj_test.hpp` 开头的 `#define RJSJ_TEST_ENABLED 1`，则可通过其它方式（编译器选项、构建系统）控制是否启用 `RJSJ_TEST` 宏的操作。
+默认定义为 `1`。可通过编译器选项、构建系统等方式定义 `RJSJ_TEST` 宏为 `0`，以禁用 `RJSJ_TEST` 宏的展开操作。
