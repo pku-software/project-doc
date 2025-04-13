@@ -12,7 +12,7 @@
 
 你需要了解 Lisp 这种编程语言。如果你还没有了解的话，可以读一下 [30 分钟 Lisp 入门教程](https://pku-software.github.io/lisp-tutorial/)。
 
-## Git（不做要求）
+## Git
 
 Git 是一个版本控制系统 (version control system，VCS)。什么是版本控制？为什么需要做版本控制？
 
