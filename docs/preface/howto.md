@@ -24,7 +24,7 @@
 
 ## 测评
 
-在完成大作业之后，请按照[中作业文档](https://pku-software.github.io/24spring/middle_homework/document#git)中的指示，将你的 **GitHub 用户名**、**GitHub 仓库名**和生成的**用户令牌**提交到教学网中。
+在完成大作业之后，请按照[中作业文档](https://pku-software.github.io/25spring/middle_homework/document#commit)中的指示，将你的 **GitHub 用户名**、**GitHub 仓库名**和生成的**用户令牌**提交到教学网中。
 
 除此之外，如果你实现了 Lv.7+ ，请提交一份报告，说明其中添加的扩展功能和实现思路。
 
